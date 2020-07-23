@@ -8,9 +8,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-
-    - name: hugo
+    - uses: falti/dotenv-action@v0.2.4
+      id: dotenv
+    - name: Clean site
+      run: |
+        rm -rf docs/*
+    - name: hugo build
       uses: klakegg/actions-hugo@1.0.0
       with:
-        version: 0.74.2
-        image: alpine
+        version: ${{ steps.dotenv.outputs.hugo_version }}
+        image: ${{ steps.dotenv.outputs.hugo_image }}
+        env: production
+        target: docs
+    - name: deploy build
+      run: |
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git add docs
+        git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
+        git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git

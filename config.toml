@@ -85,7 +85,7 @@ pygmentsUseClasses = true
   weight = 1
 [[menu.main]]
   name = "Download"
-  url  = "/#about2"
+  url  = "/#download"
   weight = 2
 [[menu.main]]
   # Use icon here to neatly back reference an external site/blog/whatever:

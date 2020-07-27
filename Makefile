@@ -7,7 +7,7 @@ export $(shell sed 's/=.*//' $(ENV_FILE))
 IMAGE=klakegg/hugo:$(HUGO_VERSION)-$(HUGO_IMAGE)
 
 build:
-	docker run -v $(THIS_DIR):/src $(IMAGE) -d docs
+	docker run -v $(THIS_DIR):/src $(IMAGE) 
 
 serve: build
-	docker run -i -p 1313:1313 -v $(THIS_DIR):/src $(IMAGE) server -d docs --disableFastRender
+	docker run -i -p 1313:1313 -v $(THIS_DIR):/src $(IMAGE) server --disableFastRender

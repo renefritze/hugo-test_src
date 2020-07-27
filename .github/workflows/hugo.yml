@@ -19,11 +19,11 @@ jobs:
         version: ${{ steps.dotenv.outputs.hugo_version }}
         image: ${{ steps.dotenv.outputs.hugo_image }}
         env: production
-        target: docs
+        target: public
     - name: deploy build
       run: |
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        git add docs
+        git add -f public/*
         git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
-        git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+        git push --all https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git

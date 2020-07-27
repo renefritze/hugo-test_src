@@ -11,3 +11,6 @@ build:
 
 serve: build
 	docker run -i -p 1313:1313 -v $(THIS_DIR):/src $(IMAGE) server --disableFastRender
+
+run: build
+	docker run -ti --entrypoint=/bin/sh -p 1313:1313 -v $(THIS_DIR):/src $(IMAGE) 

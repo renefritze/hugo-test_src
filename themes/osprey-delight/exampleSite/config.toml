@@ -1,4 +1,4 @@
-title = "pyMOR"
+title = "Osprey Delight Demo"
 baseURL = "https://example.com"
 languageCode = "en-US"
 theme = "osprey-delight"
@@ -13,41 +13,41 @@ pygmentsUseClasses = true
 [Params]
   author = "kdevo"
   email = ""
-  description = "pyMOR.org"
-  tagline = "Model Order Reduction with Python"
-  logoBig = "/images/logo.svg"
+  description = "osprey-delight example site"
+  tagline = "Hi there! Check out this theme."
+  logoBig = "/images/osprey-delight-logo.png"
   # [str] This is the logo that will be shown in the left corner of the nav bar.
   #   Usually, you would like to use something bigger than a favicon - but not too big either.
   #   Make sure that the image does not overlay the nav links. Don't be afraid of experimenting! 
-  logoSmall = "/images/logo.svg"
+  logoSmall = "favicon.png"
   favicon = "favicon.png"
-  opengraphImage = "/images/logo.svg"
+  opengraphImage = "/images/osprey-delight.png"
   googleTagManager = ""
   # [bool] The following will enforce redirection to the baseURL for all sub-directories/-pages.
   #   Example: If you create about.md, Hugo will also create a '/about/index.html'.
   #   This file will contain only a redirect directive if this switch is enabled.
   #   Make sure that you do not enable this switch if you also set useBlog to true. 
-  enforceSinglePage = true
+  enforceSinglePage = false
   # [bool] Will generate copyright notice in footer for your site.
   copyright = true
   # [bool] Your credit is much appreciated. It will be displayed in a small way in your footer.
   #   Anyways, of course you're free to uncomment the following line to disable the credit.
-  credit = true
+  # credit = false
 
 ## Social media links in footer:
 [Params.Social]
   # [str] Link to your Twitter.
-  #twitter = ""
+  twitter = ""
   # [str] Link to your LinkedIn.
-  #linkedin = ""
+  linkedin = ""
   # [str] Link to your GitHub.
-  github = "https://github.com/pymor/pymor"
+  github = "https://github.com/kdevo/osprey-delight"
   # [str] Link to your Facebook.
-  #facebook = ""
+  facebook = ""
   # [str] Link to your Instagram.
   # instagram = ""
   # [str] Link to your StackOverflow.
-  #stackoverflow = ""
+  stackoverflow = ""
 
 
 ## Theme features:
@@ -58,8 +58,8 @@ pygmentsUseClasses = true
   # [bool] Lazy loading of images with lazysizes (SEO-friendly).
   lazyloading = true
   # [str] Use Basin contact form.
-  #ajaxBasin = "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
-  #googleTagManager = ""
+  ajaxBasin = "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
+  googleTagManager = ""
   # [bool] Enable usage of your own 'assets/scss/_custom.css'.
   customCSS = false
   # [bool] Use structured data for your own https://schema.org/Person (SEO-friendly).
@@ -68,15 +68,15 @@ pygmentsUseClasses = true
   structuredData = true
   # [str] Tell your GitHub username so that the GitHub API is used to fetch more information for structured data.
   #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/{USERNAME}.
-  structuredDataFromGithub = "pymor"
+  # structuredDataFromGithub = "USERNAME"
   # [bool] Enable the optional blog module
-  useBlog = false
+  useBlog = true
 
 ## Configure contact form:
-#[Params.Contact]
+[Params.Contact]
   # [str[]] i18n keys used to display in an additional select box.
   #   Comment out if you want to disable it.
-  #select = ["generic", "coop", "business", "project"]
+  select = ["generic", "coop", "business", "project"]
 
 
 [[menu.main]]
@@ -84,12 +84,20 @@ pygmentsUseClasses = true
   url  = "/#about"
   weight = 1
 [[menu.main]]
-  name = "Download"
-  url  = "/#download"
+  name = "Work"
+  url  = "/#work"
   weight = 2
+[[menu.main]]
+  name = "Blog"
+  url  = "/#blog"
+  weight = 3
+[[menu.main]]
+  name = "Contact"
+  url  = "/#contact"
+  weight = 4
 [[menu.main]]
   # Use icon here to neatly back reference an external site/blog/whatever:
   pre = "<i class='icon icon-link-ext'></i>&nbsp;"
-  name = "Documentation"
-  url  = "https://docs.pymor.org"
+  name = ""
+  url  = "https://pyotek.dev"
   weight = 5

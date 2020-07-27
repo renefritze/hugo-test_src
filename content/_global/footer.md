@@ -8,9 +8,9 @@ weight = 1200
 menu_title = "Link Title"
 
 [asset]
-  title = "Logo Title"
+  title = "pyMOR Logo"
   image = "logo.svg"
-  text = "Logo Subtext"
+  text = "pyMOR Logo"
   url = "#"
 +++
 

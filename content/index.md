@@ -1,5 +1,5 @@
 +++
-title = "Syna Theme"
-date = "2017-09-07"
-description = "Open Source Theme from Okkur for your next project"
+title = "pyMOR"
+date = "2020-07-27"
+description = "Model Order Reduction with Python"
 +++

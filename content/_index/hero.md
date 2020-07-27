@@ -6,15 +6,15 @@ weight = 50
 background = "light" # can influence the text color
 particles = true
 
-title = "Syna Theme"
-subtitle = "Showcase your next project"
+title = "pyMOR"
+subtitle = "Do MOR. With Python."
 
 [header]
   image = "header.jpg"
 
 [asset]
   image = "logo.svg"
-  width = "500px" # optional - will default to image width
+  width = "700px" # optional - will default to image width
   #height = "150px" # optional - will default to image height
 
 [[buttons]]
@@ -24,7 +24,7 @@ subtitle = "Showcase your next project"
 
 [[buttons]]
   text = "Download"
-  url = "https://github.com/okkur/syna/releases"
+  url = "https://github.com/pymor/pymor/releases"
   color = "primary"
 
 [[buttons]]

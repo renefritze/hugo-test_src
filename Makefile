@@ -10,4 +10,4 @@ build:
 	docker run -v $(THIS_DIR):/src $(IMAGE) -d docs
 
 serve: build
-	docker run -i -p 1313:1313 -v $(THIS_DIR):/src $(IMAGE) server -d docs
+	docker run -i -p 1313:1313 -v $(THIS_DIR):/src $(IMAGE) server -d docs --disableFastRender

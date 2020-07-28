@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "/"
+baseurl = "https://rene.fritze.me/hugo-test/"
 languageCode = "en-us"
 title = "pyMOR"
 theme = "syna"

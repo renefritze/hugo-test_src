@@ -7,28 +7,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        path: src
-    - uses: webfactory/ssh-agent@v0.4.0
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - uses: actions/checkout@v1
     - name: hugo build
-      run: make -C ${GITHUB_WORKSPACE}/src build
+      run: make build && ls -la ${GITHUB_WORKSPACE}/public/
     - name: Run Lighthouse CI
       uses: treosh/lighthouse-ci-action@v3
       with:
-        configPath: ./src/.github/lighthouserc.json
-        budgetPath: ./src/.github/lighthouse_budget.json
+        configPath: ./.github/lighthouserc.json
+        budgetPath: ./.github/lighthouse_budget.json
         runs: 3
         temporaryPublicStorage: true
+    - uses: webfactory/ssh-agent@v0.4.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: deploy build
       run: |
         git clone --depth 1 git@github.com:${GITHUB_REPOSITORY/_src/}.git /tmp/site
         cd /tmp/site
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        rsync -a --delete --exclude .git ${GITHUB_WORKSPACE}/src/public/ .
-        git add .
-        git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
-        git push
+        rsync -va --delete --exclude .git ${GITHUB_WORKSPACE}/public/ .
+        git diff --exit-code || (git add .  && \
+          git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}" && \
+          git push)

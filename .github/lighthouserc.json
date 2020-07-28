@@ -2,7 +2,7 @@
   "ci": {
     "url": ["http://localhost/hugo-test/index.html"],
     "collect": {
-      "staticDistDir": "./src/public"
+      "staticDistDir": "./public"
     }
   }
 }

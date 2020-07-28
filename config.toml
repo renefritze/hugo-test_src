@@ -84,12 +84,12 @@ pygmentsUseClasses = true
   url  = "/#about"
   weight = 1
 [[menu.main]]
-  name = "Download"
+  name = "Get pyMOR"
   url  = "/#download"
   weight = 2
 [[menu.main]]
   # Use icon here to neatly back reference an external site/blog/whatever:
   pre = "<i class='icon icon-link-ext'></i>&nbsp;"
-  name = "Documentation"
+  name = "Docs"
   url  = "https://docs.pymor.org"
   weight = 5

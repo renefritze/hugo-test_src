@@ -1,116 +1,95 @@
-# Site settings
-baseurl = "https://rene.fritze.me/hugo-test/"
-languageCode = "en-us"
 title = "pyMOR"
+baseURL = "https://rene.fritze.me/hugo-test"
+languageCode = "en-US"
 theme = "osprey-delight"
+tags = ["personal", "homepage", "portfolio"]
+# canonifyURLS = true
+# googleAnalytics = ""
+disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
+enableEmoji = true
+pygmentsUseClasses = true
 
-# Google Analytics tracking
-googleAnalytics = ""
+## Generic theme parameters:
+[Params]
+  author = "kdevo"
+  email = ""
+  description = "pyMOR.org"
+  tagline = "Model Order Reduction with Python"
+  logoBig = "/images/logo.svg"
+  # [str] This is the logo that will be shown in the left corner of the nav bar.
+  #   Usually, you would like to use something bigger than a favicon - but not too big either.
+  #   Make sure that the image does not overlay the nav links. Don't be afraid of experimenting!
+  logoSmall = "/images/logo.svg"
+  favicon = "favicon.png"
+  opengraphImage = "/images/logo.svg"
+  googleTagManager = ""
+  # [bool] The following will enforce redirection to the baseURL for all sub-directories/-pages.
+  #   Example: If you create about.md, Hugo will also create a '/about/index.html'.
+  #   This file will contain only a redirect directive if this switch is enabled.
+  #   Make sure that you do not enable this switch if you also set useBlog to true.
+  enforceSinglePage = true
+  # [bool] Will generate copyright notice in footer for your site.
+  copyright = true
+  # [bool] Your credit is much appreciated. It will be displayed in a small way in your footer.
+  #   Anyways, of course you're free to uncomment the following line to disable the credit.
+  credit = true
 
-disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+## Social media links in footer:
+[Params.Social]
+  # [str] Link to your Twitter.
+  #twitter = ""
+  # [str] Link to your LinkedIn.
+  #linkedin = ""
+  # [str] Link to your GitHub.
+  github = "https://github.com/pymor/pymor"
+  # [str] Link to your Facebook.
+  #facebook = ""
+  # [str] Link to your Instagram.
+  # instagram = ""
+  # [str] Link to your StackOverflow.
+  #stackoverflow = ""
 
-[outputs]
-  home = ["HTML", "JSON"]
 
-[frontmatter]
-date = ["date", "lastmod"]
-lastmod = ["lastmod", ":git", "date"]
+## Theme features:
+[Params.Feat]
+  # [bool] Termynal (https://github.com/ines/termynal) is a small JS library for showing a terminal "animation" from within your gallery item.
+  #   The library has been stripped-down to a minimum to only have the necessary functionality.
+  useTermynal = true
+  # [bool] Lazy loading of images with lazysizes (SEO-friendly).
+  lazyloading = true
+  # [str] Use Basin contact form.
+  #ajaxBasin = "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
+  #googleTagManager = ""
+  # [bool] Enable usage of your own 'assets/scss/_custom.css'.
+  customCSS = false
+  # [bool] Use structured data for your own https://schema.org/Person (SEO-friendly).
+  #   The theme attempts to "guess" your information by using the information you give it in the configuration.
+  #   For more specific usage, you can override the JSON-LD by supplying your own 'person.json' under 'assets/'
+  structuredData = true
+  # [str] Tell your GitHub username so that the GitHub API is used to fetch more information for structured data.
+  #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/{USERNAME}.
+  structuredDataFromGithub = "pymor"
+  # [bool] Enable the optional blog module
+  useBlog = false
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-     unsafe = true
+## Configure contact form:
+#[Params.Contact]
+  # [str[]] i18n keys used to display in an additional select box.
+  #   Comment out if you want to disable it.
+  #select = ["generic", "coop", "business", "project"]
 
-[params]
-  name = "pyMOR"
-  description = "Model Order Reduction with Python"
 
-  [params.style]
-    #background = "secondary"
-
-  # Theme customizations
-  # Assets relative to 'static/'
-  [params.custom]
-    favicon = "favicon.ico"
-    favicon_ico_sizes = "16x16 32x32"
-    favicon_png = "favicon.png"
-    favicon_svg = "favicon.svg"
-
-  # Piwik tracking
-  [params.analytics.piwik]
-    #url = ""
-    #id = ""
-    #domain = "" # Track subdomains via "*.example.com"
-    # Optional hash for integrity check
-    #hash = "sha512-RfeD0pacGTqy9m7U6PgehQfS4cc7SIt+e+P+H5e848kEvB/RW84CUGO3O4O3LNbxjevym6KPUZ8muPsMrI8WIw=="
-
-  # Optional, global disable switch for fontawesome related files
-  # For custom fontawesome js files use the custom.js method
-  [params.fontawesome]
-    disabled = false
-    pro = false
-
-  [params.colors]
-    primary = "#00838F"
-    secondary = "#868e96"
-    success = "#008f54"
-    info = "#00c9dc"
-    warning = "#fdf314"
-    danger = "#dc1200"
-    light = "#f8f9fa"
-    dark = "#343a40"
-
-# main/prepend/postpend menus are displayed in nav fragment.
-# Keep an eye out for updates. These will be moved out to make navbar more
-# configurable.
 [[menu.main]]
-  url = "/"
-  name = "Home"
-  weight = 10
-
+  name = "About"
+  url  = "/#about"
+  weight = 1
 [[menu.main]]
-  url = "/about"
+  name = "Download"
   url  = "/#download"
-  weight = 20
-
+  weight = 2
 [[menu.main]]
-  url = "#contact"
-  name = "Contact"
-  weight = 30
-
-[[menu.footer]]
-  url = "#"
-  name = "Link"
-  weight = 10
-
-[[menu.footer]]
-  url = "#"
-  name = "Long Link"
-  weight = 30
-
-[[menu.footer]]
-  url = "#"
-  name = "Tiny Link"
-  weight = 30
-
-[[menu.copyright_footer]]
-  url = "/about"
-  name = "About Us"
-  weight = 10
-
-[[menu.copyright_footer]]
-  url = "#"
-  name = "Another Link"
-  weight = 30
-
-[[menu.footer_social]]
-  weight = 20
-  name = "facebook"
-  pre = "fab fa-facebook-f"
-  url = "#"
-
-[[menu.footer_social]]
-  weight = 30
-  name = "linkedin"
-  pre = "fab fa-linkedin-in"
-  url = "#"
+  # Use icon here to neatly back reference an external site/blog/whatever:
+  pre = "<i class='icon icon-link-ext'></i>&nbsp;"
+  name = "Documentation"
+  url  = "https://docs.pymor.org"
+  weight = 5

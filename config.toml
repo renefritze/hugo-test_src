@@ -1,5 +1,5 @@
 title = "pyMOR"
-baseURL = "https://rene.fritze.me/hugo-test"
+baseURL = "https://rene.fritze.me/hugo-test/"
 languageCode = "en-US"
 theme = "osprey-delight"
 tags = ["personal", "homepage", "portfolio"]

@@ -2,8 +2,6 @@
 baseurl = "https://rene.fritze.me/hugo-test/"
 languageCode = "en-us"
 title = "pyMOR"
-theme = "syna"
-enableGitInfo = true
 theme = "osprey-delight"
 
 # Google Analytics tracking

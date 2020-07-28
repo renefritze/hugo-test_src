@@ -2,7 +2,7 @@
 weight = 10
 date = "2017-05-15T20:00:16-07:00"
 title = "Toma Nistor"
-image = "toma-nistor.png"
+image = "images/toma-nistor.png"
 alt = "Toma Nistor"
 color = "#212121"
 linkView = "https://tomanistor.com"

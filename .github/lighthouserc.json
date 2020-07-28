@@ -1,6 +1,6 @@
 {
   "ci": {
-    "url": ["http://localhost/hugo-test/"],
+    "url": ["http://localhost/hugo-test/index.html"],
     "collect": {
       "staticDistDir": "./src/public"
     }

@@ -27,6 +27,6 @@ jobs:
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
         rsync -va --delete --exclude .git ${GITHUB_WORKSPACE}/public/ .
-        git add .
-        git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
-        git push
+        git diff --exit-code || (git add .  && \
+          git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}" && \
+          git push)

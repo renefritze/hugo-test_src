@@ -12,7 +12,7 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: hugo build
-      run: make build
+      run: pwd && make build && ls ${GITHUB_WORKSPACE} && ls -l public/
     - name: Run Lighthouse CI
       uses: treosh/lighthouse-ci-action@v3
       with:

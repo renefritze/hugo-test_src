@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        path: src
     - uses: webfactory/ssh-agent@v0.4.0
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -19,7 +21,7 @@ jobs:
         cd /tmp/site
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        rsync -a --delete --exclude .git public/ .
+        rsync -a --delete --exclude .git ${GITHUB_WORKSPACE}/src/public/ .
         git add .
         git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
         git push

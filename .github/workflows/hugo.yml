@@ -8,15 +8,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - uses: webfactory/ssh-agent@v0.4.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: hugo build
       run: make build
-    - name: hugo show
-      run: ls -l public/ ; ls -l * ; du -sch * ; git branch -a 
     - name: deploy build
       run: |
+        git clone --depth 1 git@github.com:${GITHUB_REPOSITORY/_src/}.git /tmp/site
+        cd /tmp/site
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        rsync -a --delete public/ docs/
-        git add -f docs/*
+        rsync -a --delete --exclude .git public/ .
+        git add .
         git commit -am "🚀 Deploy with ${GITHUB_WORKFLOW}"
-        git push --all https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+        git push
